@@ -60,4 +60,7 @@ lsystem = LSystem('F', {'F': 'G-F-G', 'G': 'F+G+F'})
 #Dragon Curve
 lsystem = LSystem('FX', {'X': 'X+YF+', 'Y': '-FX-Y'})
 
-lsystem.draw(5, 5, 90)
+#Twindragon
+lsystem = LSystem('FX+FX+', {'X': 'X+YF', 'Y': 'FX-Y'})
+
+lsystem.draw(10, 5, 90)
