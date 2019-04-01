@@ -10,11 +10,12 @@ class LSystemShell(cmd.Cmd):
         super(LSystemShell, self).preloop()
     
     def do_set(self, arg):
-        'Set LSystem (algae, drangoncurve, twindragon)'
+        'Set LSystem (algae, drangoncurve, twindragon, binarytree)'
         switcher = {
             'algae': LSystem('A', {'A': 'AB', 'B': 'A'}),
             'dragoncurve': LSystem('FX', {'X': 'X+YF+', 'Y': '-FX-Y'}),
-            'twindragon': LSystem('FX+FX+', {'X': 'X+YF', 'Y': 'FX-Y'})
+            'twindragon': LSystem('FX+FX+', {'X': 'X+YF', 'Y': 'FX-Y'}),
+            'binarytree': LSystem('0', {'1': '11', '0': '1[+0]-0'})
         }
         self.lsystem = switcher.get(arg, None)
 

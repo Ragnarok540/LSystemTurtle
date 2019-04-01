@@ -19,14 +19,26 @@ class LSystem:
             return self.generation(n - 1, result)
 
     def draw(self, n, distance, angle):
+        stack = []
         ls = self.generation(n, self.axiom)
         switcher = {
             'F': lambda: forward(distance),
             'G': lambda: forward(distance),
+            '1': lambda: forward(distance),
+            '0': lambda: forward(distance),
             '+': lambda: left(angle),
-            '-': lambda: right(angle)
+            '-': lambda: right(angle),
+            '[': lambda: stack.append((xcor(), ycor(), heading())),
+            ']': lambda: self.setXYZ(stack.pop())
         }
         for char in list(ls):
             func = switcher.get(char, lambda: None)
             func()
 
+    def setXYZ(self, xyz):
+        x, y, z = xyz
+        up()
+        setx(x)
+        sety(y)
+        seth(z)
+        down()
