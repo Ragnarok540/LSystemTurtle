@@ -10,12 +10,18 @@ class LSystemShell(cmd.Cmd):
         super(LSystemShell, self).preloop()
     
     def do_set(self, arg):
-        'Set LSystem (algae, drangoncurve, twindragon, binarytree)'
+        'Set LSystem (algae, drangoncurve, twindragon, binarytree, koch)'
         switcher = {
             'algae': LSystem('A', {'A': 'AB', 'B': 'A'}),
             'dragoncurve': LSystem('FX', {'X': 'X+YF+', 'Y': '-FX-Y'}),
             'twindragon': LSystem('FX+FX+', {'X': 'X+YF', 'Y': 'FX-Y'}),
-            'binarytree': LSystem('0', {'1': '11', '0': '1[+0]-0'})
+            'binarytree': LSystem('0', {'1': '11', '0': '1[+0]-0'}),
+            'koch': LSystem('F', {'F': 'F+F-F-F+F'}),
+            'sierpinski': LSystem('F-G-G', {'F': 'F-G+F+G-F', 'G': 'GG'}),
+            'arrowhead': LSystem('F', {'F': 'G-F-G', 'G': 'F+G+F'}),
+            'hilbert': LSystem('A', {'A': '-BF+AFA+FB-', 'B': '+AF-BFB-FA+'}),
+            'moore': LSystem('LFL+F+LFL', {'L': '-RF+LFL+FR-', 'R': '+LF-RFR-FL+'}),
+            'fern': LSystem('X', {'X': 'F+[[X]-X]-F[-FX]+X', 'F': 'FF'})
         }
         self.lsystem = switcher.get(arg, None)
 
