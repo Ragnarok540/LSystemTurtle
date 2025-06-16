@@ -16,6 +16,7 @@ class LSystemShell(cmd.Cmd):
             'dragoncurve': LSystem('FX', {'X': 'X+YF+', 'Y': '-FX-Y'}),
             'twindragon': LSystem('FX+FX+', {'X': 'X+YF', 'Y': 'FX-Y'}),
             'binarytree': LSystem('0', {'1': '11', '0': '1[+0]-0'}),
+            'cantor': LSystem('A', {'A': 'ABA', 'B': 'BBB'}),
             'koch': LSystem('F', {'F': 'F+F-F-F+F'}),
             'sierpinski': LSystem('F-G-G', {'F': 'F-G+F+G-F', 'G': 'GG'}),
             'arrowhead': LSystem('F', {'F': 'G-F-G', 'G': 'F+G+F'}),
